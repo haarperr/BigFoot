@@ -1,13 +1,6 @@
-ESX = nil                                                                     
+                                                                    
 
 SpawnedBigFoot = false
-
-Citizen.CreateThread(function()
-	while ESX == nil do
-		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)                
-		Citizen.Wait(0)
-	end
-end)
 
 function MissionText(text,time)
     ClearPrints()
@@ -31,7 +24,7 @@ function SpawnBigFoot1()
     while not HasModelLoaded(model) do
         Citizen.Wait(10)
     end
-    BigFoot = CreatePed(9, model, -635.18, 5155.70, 109.26, 2.05, true, true) --Location : North of the Sawmill
+    BigFoot = CreatePed(9, model, -635.18, 5155.70, 109.26, 2.05, true, true) --Location : South of the Sawmill
     TaskCombatPed(BigFoot, ped, 0, 16)
     TaskCombatHatedTargetsAroundPed(ped, 10, 0)
     SetEntityAsMissionEntity(BigFoot, true, true)
